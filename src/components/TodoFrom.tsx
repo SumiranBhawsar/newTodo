@@ -56,8 +56,9 @@ export default function TodoForm() {
   };
 
   return (
-    <div className="w-full max-w-xl border rounded-lg p-4 bg-white space-y-2 shadow">
+    <div className="w-full border border-gray-300 rounded-lg p-4 bg-white space-y-2 shadow">
       <form onSubmit={handleSubmit} className="space-y-2">
+        {/* Title & Quick Button */}
         <div className="flex justify-between items-start">
           <div className="flex-1">
             <input
@@ -67,7 +68,7 @@ export default function TodoForm() {
               onChange={handleChange}
               id="title"
               required
-              className="w-full text-lg font-medium text-gray-800 focus:outline-none"
+              className="w-full text-lg font-medium text-gray-700 focus:outline-none placeholder-gray-400"
             />
             <input
               type="text"
@@ -75,7 +76,7 @@ export default function TodoForm() {
               value={formData.content}
               onChange={handleChange}
               id="content"
-              className="w-full text-sm text-gray-500 mt-1 focus:outline-none"
+              className="w-full text-sm text-gray-500 mt-1 focus:outline-none placeholder-gray-400"
             />
           </div>
           <button type="button">
@@ -92,8 +93,9 @@ export default function TodoForm() {
           </button>
         </div>
 
+        {/* Options */}
         <div className="flex flex-wrap items-center space-x-2 text-sm mt-2">
-          <label className="flex items-center space-x-1 px-2 py-1 border rounded text-green-600 hover:bg-green-50 cursor-pointer">
+          <label className="flex items-center space-x-1 px-2 py-1 border border-gray-300 rounded text-green-600 hover:bg-green-50 cursor-pointer">
             <Calendar size={14} />
             <input
               type="date"
@@ -106,32 +108,33 @@ export default function TodoForm() {
           </label>
           <button
             type="button"
-            className="flex items-center space-x-1 px-2 py-1 border rounded text-gray-600 hover:bg-gray-50"
+            className="flex items-center space-x-1 px-2 py-1 border border-gray-300 rounded text-gray-700 hover:bg-gray-100"
           >
             <Flag size={14} />
             <span>Priority</span>
           </button>
           <button
             type="button"
-            className="flex items-center space-x-1 px-2 py-1 border rounded text-gray-600 hover:bg-gray-50"
+            className="flex items-center space-x-1 px-2 py-1 border border-gray-300 rounded text-gray-700 hover:bg-gray-100"
           >
             <Bell size={14} />
             <span>Reminders</span>
           </button>
           <button
             type="button"
-            className="px-2 py-1 border rounded text-gray-600 hover:bg-gray-50"
+            className="px-2 py-1 border border-gray-300 rounded text-gray-700 hover:bg-gray-100"
           >
             <MoreHorizontal size={14} />
           </button>
         </div>
 
-        <div className="flex justify-between items-center pt-2 border-t mt-2">
-          <div className="text-sm text-gray-600">Inbox ▼</div>
+        {/* Footer */}
+        <div className="flex justify-between items-center pt-2 border-t border-gray-200 mt-2">
+          <div className="text-sm text-gray-500">Inbox ▼</div>
           <div className="space-x-2">
             <button
               type="button"
-              className="px-3 py-1 text-sm text-gray-600 hover:text-black"
+              className="px-3 py-1 text-sm text-gray-500 hover:text-black"
               onClick={() =>
                 setFormData({ title: "", content: "", dueDate: "" })
               }
@@ -140,7 +143,7 @@ export default function TodoForm() {
             </button>
             <button
               type="submit"
-              className="px-3 py-1 text-sm bg-red-500 text-white rounded hover:bg-red-600"
+              className="px-3 py-1 text-sm bg-indigo-600 text-white rounded hover:bg-indigo-500"
             >
               Add task
             </button>
